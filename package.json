@@ -1,0 +1,34 @@
+{
+  "name": "interplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm grammar:build",
+    "grammar:build": "nearleyc ./src/parser/grammar.ne -o ./src/parser/grammar.js",
+    "grammar:watch": "nodemon --exec \"pnpm grammar:build\" -w ./src/parser/grammar.ne",
+    "grammar:railroad": "nearley-railroad -o ./docs/grammar.html ./src/parser/grammar.ne",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samkcarlile/interplate.git"
+  },
+  "author": "Sam Carlile <samkcarlile@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samkcarlile/interplate/issues"
+  },
+  "homepage": "https://github.com/samkcarlile/interplate#readme",
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-config-problems": "^5.0.0",
+    "nodemon": "^2.0.5"
+  },
+  "dependencies": {
+    "enquirer": "^2.3.6",
+    "moo": "^0.5.1",
+    "nearley": "^2.19.7"
+  }
+}
