@@ -27,7 +27,7 @@ var grammar = {
     {"name": "main$ebnf$1$subexpression$1", "symbols": ["Content"]},
     {"name": "main$ebnf$1$subexpression$1", "symbols": ["BlockExpression"]},
     {"name": "main$ebnf$1$subexpression$1$macrocall$2", "symbols": ["Expression"]},
-    {"name": "main$ebnf$1$subexpression$1$macrocall$1", "symbols": [{"literal":"{{"}, "_", "main$ebnf$1$subexpression$1$macrocall$2", "_", {"literal":"}}"}], "postprocess": d => d.slice(2, -2)},
+    {"name": "main$ebnf$1$subexpression$1$macrocall$1", "symbols": [(lexer.has("l2brace") ? {type: "l2brace"} : l2brace), "_", "main$ebnf$1$subexpression$1$macrocall$2", "_", (lexer.has("r2brace") ? {type: "r2brace"} : r2brace)], "postprocess": d => d.slice(2, -2)},
     {"name": "main$ebnf$1$subexpression$1", "symbols": ["main$ebnf$1$subexpression$1$macrocall$1"]},
     {"name": "main$ebnf$1", "symbols": ["main$ebnf$1", "main$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "main", "symbols": ["main$ebnf$1"], "postprocess": 
@@ -42,7 +42,7 @@ var grammar = {
     {"name": "BlockExpression$macrocall$2$subexpression$1", "symbols": ["FunctionExpression"]},
     {"name": "BlockExpression$macrocall$2$subexpression$1", "symbols": ["ObjectExpression"]},
     {"name": "BlockExpression$macrocall$2", "symbols": ["BlockExpression$macrocall$2$subexpression$1"]},
-    {"name": "BlockExpression$macrocall$1", "symbols": [{"literal":"{{"}, "_", "BlockExpression$macrocall$2", "_", {"literal":"}}"}], "postprocess": d => d.slice(2, -2)},
+    {"name": "BlockExpression$macrocall$1", "symbols": [(lexer.has("l2brace") ? {type: "l2brace"} : l2brace), "_", "BlockExpression$macrocall$2", "_", (lexer.has("r2brace") ? {type: "r2brace"} : r2brace)], "postprocess": d => d.slice(2, -2)},
     {"name": "BlockExpression", "symbols": ["BlockExpression$macrocall$1", "_", "main", "_", "EndExpression"], "postprocess": 
         d => ({
           type: 'block_expression',
@@ -52,7 +52,7 @@ var grammar = {
         })
              },
     {"name": "EndExpression$macrocall$2", "symbols": [{"literal":"/"}, "Identifier"]},
-    {"name": "EndExpression$macrocall$1", "symbols": [{"literal":"{{"}, "_", "EndExpression$macrocall$2", "_", {"literal":"}}"}], "postprocess": d => d.slice(2, -2)},
+    {"name": "EndExpression$macrocall$1", "symbols": [(lexer.has("l2brace") ? {type: "l2brace"} : l2brace), "_", "EndExpression$macrocall$2", "_", (lexer.has("r2brace") ? {type: "r2brace"} : r2brace)], "postprocess": d => d.slice(2, -2)},
     {"name": "EndExpression", "symbols": ["EndExpression$macrocall$1"], "postprocess": 
         d => ({
           type: 'end_expression',
@@ -98,6 +98,7 @@ var grammar = {
         })
              },
     {"name": "FunctionParams", "symbols": [], "postprocess": () => []},
+    {"name": "FunctionParams$subexpression$1", "symbols": ["ValueExpression"]},
     {"name": "FunctionParams$subexpression$1", "symbols": ["Identifier"]},
     {"name": "FunctionParams$subexpression$1", "symbols": ["String"]},
     {"name": "FunctionParams$subexpression$1", "symbols": ["Variable"]},
@@ -126,7 +127,7 @@ var grammar = {
              },
     {"name": "ValueExpression$subexpression$1", "symbols": ["FunctionExpression"]},
     {"name": "ValueExpression$subexpression$1", "symbols": ["String"]},
-    {"name": "ValueExpression", "symbols": [{"literal":"("}, "_", "ValueExpression$subexpression$1", "_", {"literal":")"}], "postprocess": 
+    {"name": "ValueExpression", "symbols": [(lexer.has("lparen") ? {type: "lparen"} : lparen), "_", "ValueExpression$subexpression$1", "_", (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess": 
         d => ({
           type: 'value_expression',
           value: d[2][0] 

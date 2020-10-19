@@ -1,4 +1,4 @@
-{{ $name < @text 'Enter your ame:' }}
+{{ $name < @text 'Enter your name:' }}
 {{ $includeRoot < @confirm 'Do you want the root?' }}
 {{ $extends < @multi 'Extends:' ['problems', 'prettier', '@typescript/' ('Typescript ESLint')] }}
 {{ $pizza < @form '🍕 Build your pizza'

@@ -21,7 +21,7 @@ function unwrap(d) {
 @lexer lexer
 
 # helpful macros
-inBrackets[X] -> "{{" _ $X _ "}}"     {% d => d.slice(2, -2) %}
+inBrackets[X] -> %l2brace _ $X _ %r2brace     {% d => d.slice(2, -2) %}
 
 main 
   -> (Content|BlockExpression|inBrackets[Expression]):*
@@ -114,7 +114,7 @@ FunctionParams
   -> null           {% () => [] %}
      # TODO: would be nice if we didn't require whitespace after the last function parameter
      #       Also, I should rename anything including `parameter` to `argument` to be precise.
-   | FunctionParams (Identifier|String|Variable|Dictionary) __
+   | FunctionParams (ValueExpression|Identifier|String|Variable|Dictionary) __
      {%
         d => [...d[0], d[1]]
      %} 
@@ -140,7 +140,7 @@ DictionaryItems
      %}
 
 ValueExpression
-  -> "(" _ (FunctionExpression|String) _ ")"
+  -> %lparen _ (FunctionExpression|String) _ %rparen
      {%
         d => ({
           type: 'value_expression',

@@ -21,6 +21,18 @@ const inlineFunctions = {
     });
     return answer;
   },
+  async choose(message, choices) {
+    const { answer } = await prompt({
+      type: 'select',
+      name: 'answer',
+      message,
+      choices: Object.entries(choices).map(([message, name]) => ({
+        name,
+        message,
+      })),
+    });
+    return answer;
+  },
 };
 
 const blockFunctions = {

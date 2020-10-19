@@ -18,14 +18,10 @@
       "arguments": [
         {
           "type": "string",
-          "name": "Name:"
+          "name": "Enter your name:"
         }
       ]
     }
-  },
-  {
-    "type": "content",
-    "value": "\n"
   },
   {
     "type": "assignment_expression",
@@ -52,10 +48,6 @@
     }
   },
   {
-    "type": "content",
-    "value": "\n"
-  },
-  {
     "type": "assignment_expression",
     "variable": {
       "type": "variable",
@@ -69,7 +61,7 @@
       "alternate": false,
       "callee": {
         "type": "ident",
-        "name": "mutli"
+        "name": "multi"
       },
       "arguments": [
         {
@@ -119,10 +111,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "content",
-    "value": "\n"
   },
   {
     "type": "assignment_expression",
@@ -332,7 +320,7 @@
   },
   {
     "type": "content",
-    "value": "\n\nYour name is "
+    "value": "\nYour name is "
   },
   {
     "type": "identifier_expression",
@@ -388,7 +376,7 @@
   },
   {
     "type": "content",
-    "value": "\nYou "
+    "value": "You "
   },
   {
     "type": "block_expression",
@@ -437,31 +425,20 @@
         {
           "type": "ident",
           "name": "extends"
-        },
-        {
-          "type": "variable",
-          "id": {
-            "type": "ident",
-            "name": "e"
-          }
         }
       ]
     },
     "body": [
       {
         "type": "content",
-        "value": "\n- "
+        "value": "- "
       },
       {
         "type": "identifier_expression",
         "id": {
           "type": "ident",
-          "name": "e"
+          "name": "this"
         }
-      },
-      {
-        "type": "content",
-        "value": "\n"
       }
     ],
     "close": {
@@ -474,7 +451,7 @@
   },
   {
     "type": "content",
-    "value": "\n\nYour pizza order:\n"
+    "value": "\nYour pizza order:\n"
   },
   {
     "type": "block_expression",
@@ -488,7 +465,7 @@
     "body": [
       {
         "type": "content",
-        "value": "\n  Toppings: "
+        "value": "  Toppings: "
       },
       {
         "type": "identifier_expression",
@@ -499,7 +476,7 @@
       },
       {
         "type": "content",
-        "value": "\n  Size: "
+        "value": "  Size: "
       },
       {
         "type": "identifier_expression",
@@ -510,7 +487,7 @@
       },
       {
         "type": "content",
-        "value": "\n  "
+        "value": "  "
       },
       {
         "type": "block_expression",
@@ -541,10 +518,6 @@
             "name": "if"
           }
         }
-      },
-      {
-        "type": "content",
-        "value": "\n"
       }
     ],
     "close": {
@@ -554,9 +527,5 @@
         "name": "pizza"
       }
     }
-  },
-  {
-    "type": "content",
-    "value": "\n"
   }
 ]

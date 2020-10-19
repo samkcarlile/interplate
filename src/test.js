@@ -5,11 +5,10 @@ const builtins = require('./builtins');
 
 const input = `
 {{ $name < @text 'What is your name?' }}
-Your name is {{ name }}!
-{{ $sayHi < @confirm 'Do you want to say hi?' }}
-
-{{ @if sayHi }}
-👋 Hi!!!!
+{{ $favoriteFood < @choose 'What is your favorite food?' ['pizza', 'chicken', 'ice cream'] }}
+Your name is {{ name }}, and your favorite food is {{ favoriteFood }}.
+{{ @if ( @confirm 'Do you want to eat it now?' ) }}
+😋 NOM NOM NOM 😋
 {{ /if }}
 `;
 

@@ -19,6 +19,10 @@ function compile(...nodes) {
         return assignmentExpression(node);
       case 'identifier_expression':
         return identifierExpression(node);
+      case 'value_expression':
+        return valueExpression(node);
+      case 'dictionary':
+        return dictionary(node);
       case 'ident':
         return identifier(node);
       case 'string':
@@ -70,6 +74,28 @@ function functionExpression(stmt) {
 
 function identifierExpression(stmt) {
   return compile(stmt.id)[0];
+}
+
+function valueExpression(stmt) {
+  return compile(stmt.value)[0];
+}
+
+function dictionary(stmt) {
+  const { entries } = stmt;
+  const _obj = entries.map(entry => {
+    const [key, value] = compile(entry.key, entry.value);
+    return { key, value };
+  });
+
+  return async context => {
+    const obj = {};
+    for (const { key: _key, value: _value } of _obj) {
+      const key = await _key(context);
+      const value = await _value(context);
+      obj[key] = value;
+    }
+    return obj;
+  };
 }
 
 function identifier(stmt) {
