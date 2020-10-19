@@ -11,4 +11,6 @@ parser.feed(testContents);
 
 parser.results; // ?
 
-JSON.stringify(parser.results[0], null, '  '); // ?
+const output = JSON.stringify(parser.results[0], null, '  '); // ?
+
+fs.writeFileSync(join(__dirname, 'test.out.json'), output);

@@ -1,0 +1,562 @@
+[
+  {
+    "type": "assignment_expression",
+    "variable": {
+      "type": "variable",
+      "id": {
+        "type": "ident",
+        "name": "name"
+      }
+    },
+    "init": {
+      "type": "function_expression",
+      "alternate": false,
+      "callee": {
+        "type": "ident",
+        "name": "text"
+      },
+      "arguments": [
+        {
+          "type": "string",
+          "name": "Name:"
+        }
+      ]
+    }
+  },
+  {
+    "type": "content",
+    "value": "\n"
+  },
+  {
+    "type": "assignment_expression",
+    "variable": {
+      "type": "variable",
+      "id": {
+        "type": "ident",
+        "name": "includeRoot"
+      }
+    },
+    "init": {
+      "type": "function_expression",
+      "alternate": false,
+      "callee": {
+        "type": "ident",
+        "name": "confirm"
+      },
+      "arguments": [
+        {
+          "type": "string",
+          "name": "Do you want the root?"
+        }
+      ]
+    }
+  },
+  {
+    "type": "content",
+    "value": "\n"
+  },
+  {
+    "type": "assignment_expression",
+    "variable": {
+      "type": "variable",
+      "id": {
+        "type": "ident",
+        "name": "extends"
+      }
+    },
+    "init": {
+      "type": "function_expression",
+      "alternate": false,
+      "callee": {
+        "type": "ident",
+        "name": "mutli"
+      },
+      "arguments": [
+        {
+          "type": "string",
+          "name": "Extends:"
+        },
+        {
+          "type": "dictionary",
+          "entries": [
+            {
+              "type": "entry",
+              "key": {
+                "type": "string",
+                "name": "problems"
+              },
+              "value": {
+                "type": "string",
+                "name": "problems"
+              }
+            },
+            {
+              "type": "entry",
+              "key": {
+                "type": "string",
+                "name": "prettier"
+              },
+              "value": {
+                "type": "string",
+                "name": "prettier"
+              }
+            },
+            {
+              "type": "entry",
+              "key": {
+                "type": "string",
+                "name": "@typescript/"
+              },
+              "value": {
+                "type": "value_expression",
+                "value": {
+                  "type": "string",
+                  "name": "Typescript ESLint"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "content",
+    "value": "\n"
+  },
+  {
+    "type": "assignment_expression",
+    "variable": {
+      "type": "variable",
+      "id": {
+        "type": "ident",
+        "name": "pizza"
+      }
+    },
+    "init": {
+      "type": "function_expression",
+      "alternate": false,
+      "callee": {
+        "type": "ident",
+        "name": "form"
+      },
+      "arguments": [
+        {
+          "type": "string",
+          "name": "🍕 Build your pizza"
+        },
+        {
+          "type": "dictionary",
+          "entries": [
+            {
+              "type": "entry",
+              "key": {
+                "type": "property",
+                "id": {
+                  "type": "ident",
+                  "name": "toppings"
+                }
+              },
+              "value": {
+                "type": "value_expression",
+                "value": {
+                  "type": "function_expression",
+                  "alternate": false,
+                  "callee": {
+                    "type": "ident",
+                    "name": "multi"
+                  },
+                  "arguments": [
+                    {
+                      "type": "string",
+                      "name": "Toppings?"
+                    },
+                    {
+                      "type": "dictionary",
+                      "entries": [
+                        {
+                          "type": "entry",
+                          "key": {
+                            "type": "string",
+                            "name": "cheese"
+                          },
+                          "value": {
+                            "type": "string",
+                            "name": "cheese"
+                          }
+                        },
+                        {
+                          "type": "entry",
+                          "key": {
+                            "type": "string",
+                            "name": "olives"
+                          },
+                          "value": {
+                            "type": "string",
+                            "name": "olives"
+                          }
+                        },
+                        {
+                          "type": "entry",
+                          "key": {
+                            "type": "string",
+                            "name": "bacon"
+                          },
+                          "value": {
+                            "type": "string",
+                            "name": "bacon"
+                          }
+                        },
+                        {
+                          "type": "entry",
+                          "key": {
+                            "type": "string",
+                            "name": "pineapple"
+                          },
+                          "value": {
+                            "type": "string",
+                            "name": "pineapple"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "entry",
+              "key": {
+                "type": "property",
+                "id": {
+                  "type": "ident",
+                  "name": "size"
+                }
+              },
+              "value": {
+                "type": "value_expression",
+                "value": {
+                  "type": "function_expression",
+                  "alternate": false,
+                  "callee": {
+                    "type": "ident",
+                    "name": "select"
+                  },
+                  "arguments": [
+                    {
+                      "type": "string",
+                      "name": "Size?"
+                    },
+                    {
+                      "type": "dictionary",
+                      "entries": [
+                        {
+                          "type": "entry",
+                          "key": {
+                            "type": "string",
+                            "name": "1"
+                          },
+                          "value": {
+                            "type": "value_expression",
+                            "value": {
+                              "type": "string",
+                              "name": "Small"
+                            }
+                          }
+                        },
+                        {
+                          "type": "entry",
+                          "key": {
+                            "type": "string",
+                            "name": "2"
+                          },
+                          "value": {
+                            "type": "value_expression",
+                            "value": {
+                              "type": "string",
+                              "name": "Medium"
+                            }
+                          }
+                        },
+                        {
+                          "type": "entry",
+                          "key": {
+                            "type": "string",
+                            "name": "3"
+                          },
+                          "value": {
+                            "type": "value_expression",
+                            "value": {
+                              "type": "string",
+                              "name": "Large"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "entry",
+              "key": {
+                "type": "property",
+                "id": {
+                  "type": "ident",
+                  "name": "extraSauce"
+                }
+              },
+              "value": {
+                "type": "value_expression",
+                "value": {
+                  "type": "function_expression",
+                  "alternate": false,
+                  "callee": {
+                    "type": "ident",
+                    "name": "confirm"
+                  },
+                  "arguments": [
+                    {
+                      "type": "string",
+                      "name": "Extra sauce?"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "content",
+    "value": "\n\nYour name is "
+  },
+  {
+    "type": "identifier_expression",
+    "id": {
+      "type": "ident",
+      "name": "name"
+    }
+  },
+  {
+    "type": "content",
+    "value": "!\n"
+  },
+  {
+    "type": "block_expression",
+    "open": {
+      "type": "function_expression",
+      "alternate": false,
+      "callee": {
+        "type": "ident",
+        "name": "if"
+      },
+      "arguments": [
+        {
+          "type": "ident",
+          "name": "includeRoot"
+        }
+      ]
+    },
+    "body": [
+      {
+        "type": "content",
+        "value": " You want to include the root. "
+      },
+      {
+        "type": "identifier_expression",
+        "id": {
+          "type": "ident",
+          "name": "else"
+        }
+      },
+      {
+        "type": "content",
+        "value": " You do not want the root. "
+      }
+    ],
+    "close": {
+      "type": "end_expression",
+      "id": {
+        "type": "ident",
+        "name": "if"
+      }
+    }
+  },
+  {
+    "type": "content",
+    "value": "\nYou "
+  },
+  {
+    "type": "block_expression",
+    "open": {
+      "type": "function_expression",
+      "alternate": true,
+      "callee": {
+        "type": "ident",
+        "name": "if"
+      },
+      "arguments": [
+        {
+          "type": "ident",
+          "name": "includeRoot"
+        }
+      ]
+    },
+    "body": [
+      {
+        "type": "content",
+        "value": "do not"
+      }
+    ],
+    "close": {
+      "type": "end_expression",
+      "id": {
+        "type": "ident",
+        "name": "if"
+      }
+    }
+  },
+  {
+    "type": "content",
+    "value": " want to include the root.\n\nYou want to extend the following:\n"
+  },
+  {
+    "type": "block_expression",
+    "open": {
+      "type": "function_expression",
+      "alternate": false,
+      "callee": {
+        "type": "ident",
+        "name": "each"
+      },
+      "arguments": [
+        {
+          "type": "ident",
+          "name": "extends"
+        },
+        {
+          "type": "variable",
+          "id": {
+            "type": "ident",
+            "name": "e"
+          }
+        }
+      ]
+    },
+    "body": [
+      {
+        "type": "content",
+        "value": "\n- "
+      },
+      {
+        "type": "identifier_expression",
+        "id": {
+          "type": "ident",
+          "name": "e"
+        }
+      },
+      {
+        "type": "content",
+        "value": "\n"
+      }
+    ],
+    "close": {
+      "type": "end_expression",
+      "id": {
+        "type": "ident",
+        "name": "each"
+      }
+    }
+  },
+  {
+    "type": "content",
+    "value": "\n\nYour pizza order:\n"
+  },
+  {
+    "type": "block_expression",
+    "open": {
+      "type": "object_expression",
+      "object": {
+        "type": "ident",
+        "name": "pizza"
+      }
+    },
+    "body": [
+      {
+        "type": "content",
+        "value": "\n  Toppings: "
+      },
+      {
+        "type": "identifier_expression",
+        "id": {
+          "type": "ident",
+          "name": "toppings"
+        }
+      },
+      {
+        "type": "content",
+        "value": "\n  Size: "
+      },
+      {
+        "type": "identifier_expression",
+        "id": {
+          "type": "ident",
+          "name": "size"
+        }
+      },
+      {
+        "type": "content",
+        "value": "\n  "
+      },
+      {
+        "type": "block_expression",
+        "open": {
+          "type": "function_expression",
+          "alternate": false,
+          "callee": {
+            "type": "ident",
+            "name": "if"
+          },
+          "arguments": [
+            {
+              "type": "ident",
+              "name": "extraSauce"
+            }
+          ]
+        },
+        "body": [
+          {
+            "type": "content",
+            "value": " (🔥 Extra Sauce) "
+          }
+        ],
+        "close": {
+          "type": "end_expression",
+          "id": {
+            "type": "ident",
+            "name": "if"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "value": "\n"
+      }
+    ],
+    "close": {
+      "type": "end_expression",
+      "id": {
+        "type": "ident",
+        "name": "pizza"
+      }
+    }
+  },
+  {
+    "type": "content",
+    "value": "\n"
+  }
+]
