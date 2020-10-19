@@ -8,7 +8,7 @@ class Scope {
   get(key) {
     let scope = this;
     while (scope) {
-      if (scope.data[key]) return scope.data[key];
+      if (scope.data[key] !== undefined) return scope.data[key];
       scope = scope.parent;
     }
     throw new Error(`value of '${key}' does not exist`);

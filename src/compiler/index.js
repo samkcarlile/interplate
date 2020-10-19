@@ -2,7 +2,7 @@
  * group functions returned from `compile()`
  */
 const group = compiledStatements => context =>
-  Promise.all(compiledStatements.map(cs => async () => cs(context)));
+  Promise.all(compiledStatements.map(cs => cs(context)));
 
 function compile(...nodes) {
   const templateFunctions = nodes.map(node => {
@@ -19,7 +19,7 @@ function compile(...nodes) {
         return assignmentExpression(node);
       case 'identifier_expression':
         return identifierExpression(node);
-      case 'identifier':
+      case 'ident':
         return identifier(node);
       case 'string':
         return string(node);
@@ -32,8 +32,8 @@ function compile(...nodes) {
 }
 
 function blockExpression(stmt) {
-  const body = group(compile(stmt.body));
-  const args = group(compile(stmt.open.args));
+  const body = group(compile(...stmt.body));
+  const args = group(compile(...stmt.open.arguments));
   // TODO: come up with a better way to handle object block expressions
   const fnName =
     stmt.open.type === 'object_expression' ? 'object' : stmt.open.callee.name;
@@ -60,11 +60,11 @@ function assignmentExpression(stmt) {
 
 function functionExpression(stmt) {
   const { name } = stmt.callee;
-  const args = group(compile(stmt.arguments));
+  const args = group(compile(...stmt.arguments));
   return async context => {
     const fn = context.fn(name);
     const argValues = await args(context);
-    return fn(argValues);
+    return fn(...argValues);
   };
 }
 
@@ -73,7 +73,7 @@ function identifierExpression(stmt) {
 }
 
 function identifier(stmt) {
-  return async context => context.scope.get([stmt.id.name]);
+  return async context => context.scope.get([stmt.name]);
 }
 
 function content(stmt) {
