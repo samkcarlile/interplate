@@ -1,6 +1,6 @@
-{{ $name < @text 'Name:' }}
+{{ $name < @text 'Enter your ame:' }}
 {{ $includeRoot < @confirm 'Do you want the root?' }}
-{{ $extends < @mutli 'Extends:' ['problems', 'prettier', '@typescript/' ('Typescript ESLint')] }}
+{{ $extends < @multi 'Extends:' ['problems', 'prettier', '@typescript/' ('Typescript ESLint')] }}
 {{ $pizza < @form '🍕 Build your pizza'
   [
     .toppings   ( @multi 'Toppings?' ['cheese', 'olives', 'bacon', 'pineapple'] ),
@@ -14,8 +14,8 @@ Your name is {{ name }}!
 You {{ ~if includeRoot }}do not{{ /if }} want to include the root.
 
 You want to extend the following:
-{{ @each extends $e }}
-- {{ e }}
+{{ @each extends }}
+- {{ this }}
 {{ /each }}
 
 Your pizza order:
