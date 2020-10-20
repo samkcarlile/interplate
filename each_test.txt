@@ -1,0 +1,5 @@
+{{ $meats < @multi 'Pick some meats:' [ 'chicken', 'steak', 'salmon', 'lamb', 'pork' ] }}
+You picked the following meats:
+{{ @each meats }}
+  * {{ this }}
+{{ /each }}

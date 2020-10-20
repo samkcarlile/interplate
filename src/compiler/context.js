@@ -28,13 +28,18 @@ class Scope {
 class Context {
   constructor(functions, initialScope) {
     this.functions = functions || {};
-    this.scope = new Scope(initialScope || {});
+    this.scope = initialScope || new Scope();
   }
 
   /** Returns the function by name */
   fn(name) {
     if (this.functions[name]) return this.functions[name];
     throw new Error(`function '${name}' does not exist`);
+  }
+
+  /** Returns a new context with the a new scope */
+  withScope(data) {
+    return new Context(this.functions, this.scope.with(data));
   }
 }
 

@@ -1,0 +1,15 @@
+{{ $pizza < @form '🍕 Build your pizza'
+  [
+    .toppings   ( @multi 'Toppings?' ['cheese', 'olives', 'bacon', 'pineapple' ] ),
+    .size       ( @choose 'Size?' ['1' ('Small'), '2' ('Medium'), '3' ('Large') ] ),
+    .extraSauce ( @confirm 'Extra sauce?' ),
+  ]
+}}
+Your pizza order:
+{{ #pizza }}
+  Toppings: {{ toppings }}
+
+  Size: {{ size }}
+
+  {{ @if extraSauce }} (🔥 Extra Sauce) {{ /if }}
+{{ /pizza }}

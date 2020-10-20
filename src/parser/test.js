@@ -7,10 +7,10 @@ const lexer = require('./lexer');
 const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
 // TEST FOR ONLY THE LEXER IS COMMENTED OUT
-// const testContents = `
-// {{ @if ( @confirm 'Do you want to eat it now?' ) }}
-// 😋 NOM NOM NOM 😋
-// {{ /if }}`;
+const testContents = `
+{{ @if ( @confirm 'Do you want to eat it now?' ) }}
+😋 NOM NOM NOM 😋
+{{ /if }}`;
 
 // lexer.lexer.reset(testContents);
 
@@ -22,7 +22,7 @@ const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
 // JSON.stringify(tokens, null, ' '); // ?
 
-const testContents = fs.readFileSync(join(__dirname, 'test.txt'), 'utf-8');
+// const testContents = fs.readFileSync(join(__dirname, 'test.txt'), 'utf-8');
 try {
   parser.feed(testContents);
 } catch (err) {
@@ -34,4 +34,4 @@ parser.results; // ?
 
 const output = JSON.stringify(parser.results[0], null, '  '); // ?
 
-fs.writeFileSync(join(__dirname, 'test.out.json'), output);
+// fs.writeFileSync(join(__dirname, 'test.out.json'), output);

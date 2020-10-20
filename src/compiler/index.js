@@ -23,6 +23,8 @@ function compile(...nodes) {
         return valueExpression(node);
       case 'dictionary':
         return dictionary(node);
+      case 'property':
+        return property(node);
       case 'ident':
         return identifier(node);
       case 'string':
@@ -37,7 +39,10 @@ function compile(...nodes) {
 
 function blockExpression(stmt) {
   const body = group(compile(...stmt.body));
-  const args = group(compile(...stmt.open.arguments));
+  const args =
+    stmt.open.type === 'object_expression'
+      ? group(compile(stmt.open.object))
+      : group(compile(...stmt.open.arguments));
   // TODO: come up with a better way to handle object block expressions
   const fnName =
     stmt.open.type === 'object_expression' ? 'object' : stmt.open.callee.name;
@@ -47,10 +52,6 @@ function blockExpression(stmt) {
     return fn(context, body, ...argValues);
   };
 }
-
-// function objectExpression(stmt) {
-//   return async context =>
-// }
 
 function assignmentExpression(stmt) {
   const varname = stmt.variable.id.name;
@@ -96,6 +97,10 @@ function dictionary(stmt) {
     }
     return obj;
   };
+}
+
+function property(stmt) {
+  return async () => stmt.id.name;
 }
 
 function identifier(stmt) {

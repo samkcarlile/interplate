@@ -1,0 +1,8 @@
+{{ $favouriteColour < @choose 'Pick a favourite colour:' 
+  [ 
+  'Value 1' ( @text 'Pick a color' ),
+  'Value 2' ( @text 'Pick a color' ),
+  'Value 3' ( @text 'Pick a color' ) 
+  ] 
+}}
+{{ favouriteColour }}
